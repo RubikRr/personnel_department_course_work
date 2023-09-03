@@ -18,12 +18,40 @@ namespace personnel_department_DB
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var posDirectorId= Guid.NewGuid();
-            var posAccountantId=Guid.NewGuid();
-            modelBuilder.Entity<Position>().
-                HasData(
-                new Position { Id = posDirectorId, Name = "Директор"},
-                new Position {Id=posAccountantId,Name="Бухгалтер"});
+            var posDirector = new Position { Id = Guid.NewGuid(), Name = "Директор" };
+            var posAccountant = new Position { Id = Guid.NewGuid(), Name = "Бухгалтер" };
+            modelBuilder.Entity<Position>().HasData(posDirector,posAccountant);
+
+
+
+            var director = new Employee
+            {
+                Id = Guid.NewGuid(),
+                FIO = "Василий Петрович Вознесенский",
+                DateOfBirth = new DateTime(2003, 1, 26),
+                FamilyComposition = 2,
+                INH = 1234567890,
+                PassportId = 11148,
+                PhoneNumber = "+7 919 922 32 23",
+                PlaceOfResidence = "Пр.Мира 1",
+                WorkExperience=12,
+                Position=posDirector
+            };
+            modelBuilder.Entity<Employee>().HasData(director);
+
+            var directorWorkingTimeTable = new WorkingTimeTable
+            {
+                Id=Guid.NewGuid(),
+                DaysWorked=31,
+                ActualDaysWorked=20,
+                DaysOff=4,
+                BusinessTrip=4,
+                SickLeave=3,
+                Vacation=0,
+                Employee=director,
+            };
+
+            modelBuilder.Entity<WorkingTimeTable>().HasData(directorWorkingTimeTable);
         }
     }
 }
