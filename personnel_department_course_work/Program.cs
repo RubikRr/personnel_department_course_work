@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using personnel_department_DB;
+
 namespace personnel_department_course_work
 {
     public class Program
@@ -5,10 +8,10 @@ namespace personnel_department_course_work
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            var connectionString =builder.Configuration.GetConnectionString("PersonnelDepartment");
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connectionString));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
