@@ -18,8 +18,7 @@ namespace personnel_department_DB
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var posDirectorId = Guid.NewGuid();
-            var posDirector = new Position { Id = posDirectorId, Name = "Директор" };
+            var posDirector = new Position { Id = Guid.NewGuid(), Name = "Директор" };
             var posAccountant = new Position { Id = Guid.NewGuid(), Name = "Бухгалтер" };
 
 
