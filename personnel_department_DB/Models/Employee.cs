@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace personnel_department_DB.Models
 {
+    [Table("Employess")]
     public class Employee
     {
         public Guid Id { get; set; }
@@ -21,7 +23,7 @@ namespace personnel_department_DB.Models
         public Guid PositionId { get; set; }
         public Position Position { get; set; }
 
-        public WorkingTimeTable WorkingTimeTable { get; set; }
+        public WorkingTime WorkingTimeTable { get; set; }
 
 
     }

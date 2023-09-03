@@ -37,7 +37,7 @@ namespace personnel_department_DB
                 PositionId = posDirector.Id,
             };
 
-            var directorWorkingTimeTable = new WorkingTimeTable
+            var directorWorkingTimeTable = new WorkingTime
             {
                 Id = Guid.NewGuid(),
                 DaysWorked = 31,
@@ -50,7 +50,7 @@ namespace personnel_department_DB
             };
             modelBuilder.Entity<Position>().HasData(posDirector, posAccountant);
             modelBuilder.Entity<Employee>().HasData(director);
-            modelBuilder.Entity<WorkingTimeTable>().HasData(directorWorkingTimeTable);
+            modelBuilder.Entity<WorkingTime>().HasData(directorWorkingTimeTable);
         }
     }
 }

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace personnel_department_DB.Models
 {
-    public class WorkingTimeTable
+    public class WorkingTime
     {
         public Guid Id { get; set; }
         public int DaysWorked { get; set; }
