@@ -10,7 +10,7 @@ namespace personnel_department_DB.Models
     {
         public Guid Id { get; set; }
         public int DaysWorked { get; set; }
-        public int ActualDaysWorkd { get; set; }
+        public int ActualDaysWorked { get; set; }
         public int DaysOff { get; set; }
         public int Vacation { get; set; }
         public int BusinessTrip { get; set; }

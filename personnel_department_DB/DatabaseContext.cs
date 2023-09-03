@@ -18,9 +18,9 @@ namespace personnel_department_DB
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var posDirector = new Position { Id = Guid.NewGuid(), Name = "Директор" };
+            var posDirectorId = Guid.NewGuid();
+            var posDirector = new Position { Id = posDirectorId, Name = "Директор" };
             var posAccountant = new Position { Id = Guid.NewGuid(), Name = "Бухгалтер" };
-            modelBuilder.Entity<Position>().HasData(posDirector,posAccountant);
 
 
 
@@ -34,23 +34,23 @@ namespace personnel_department_DB
                 PassportId = 11148,
                 PhoneNumber = "+7 919 922 32 23",
                 PlaceOfResidence = "Пр.Мира 1",
-                WorkExperience=12,
-                Position=posDirector
+                WorkExperience = 12,
+                PositionId = posDirector.Id,
             };
-            modelBuilder.Entity<Employee>().HasData(director);
 
             var directorWorkingTimeTable = new WorkingTimeTable
             {
-                Id=Guid.NewGuid(),
-                DaysWorked=31,
-                ActualDaysWorked=20,
-                DaysOff=4,
-                BusinessTrip=4,
-                SickLeave=3,
-                Vacation=0,
-                Employee=director,
+                Id = Guid.NewGuid(),
+                DaysWorked = 31,
+                ActualDaysWorked = 20,
+                DaysOff = 4,
+                BusinessTrip = 4,
+                SickLeave = 3,
+                Vacation = 0,
+                EmployeeId = director.Id
             };
-
+            modelBuilder.Entity<Position>().HasData(posDirector, posAccountant);
+            modelBuilder.Entity<Employee>().HasData(director);
             modelBuilder.Entity<WorkingTimeTable>().HasData(directorWorkingTimeTable);
         }
     }
