@@ -8,16 +8,18 @@ using System.Threading.Tasks;
 
 namespace personnel_department_DB
 {
-    public class DatabaseContext:DbContext
+    public class DatabaseContext : DbContext
     {
         public DbSet<Position> Positions { get; set; }
-        public DatabaseContext(DbContextOptions<DatabaseContext> options):base(options) 
+        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
             Database.Migrate();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            var company1 = new Company { Id = Guid.NewGuid(), Name = "ООО Рубик экспресс" };
+
             var posDirector = new Position { Id = Guid.NewGuid(), Name = "Директор" };
             var posAccountant = new Position { Id = Guid.NewGuid(), Name = "Бухгалтер" };
 
@@ -49,6 +51,7 @@ namespace personnel_department_DB
                 EmployeeId = director.Id
             };
             modelBuilder.Entity<Position>().HasData(posDirector, posAccountant);
+            modelBuilder.Entity<Company>().HasData(company1);
             modelBuilder.Entity<Employee>().HasData(director);
             modelBuilder.Entity<WorkingTime>().HasData(directorWorkingTimeTable);
         }
