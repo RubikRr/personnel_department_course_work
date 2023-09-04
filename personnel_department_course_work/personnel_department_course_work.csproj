@@ -19,8 +19,4 @@
     <ProjectReference Include="..\personnel_department_DB\personnel_department_DB.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Employee\" />
-  </ItemGroup>
-
 </Project>

@@ -1,4 +1,5 @@
-﻿using personnel_department_DB.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using personnel_department_DB.Interfaces;
 using personnel_department_DB.Models;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace personnel_department_DB.Storages
 
         public List<Employee> GetAll()
         {
-            return dbContext
+            return dbContext.Employess.Include(employee=>employee.Position).Include(employee=>employee.WorkingTimeTable).ToList();
         }
     }
 }
