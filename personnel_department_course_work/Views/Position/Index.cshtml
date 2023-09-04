@@ -1,0 +1,6 @@
+﻿@using personnel_department_DB.Models;
+@model List<Position>
+@foreach(var position in @Model)
+{
+    <p>@position.Name</p>
+}

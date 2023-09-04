@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using personnel_department_DB;
+using personnel_department_DB.Interfaces;
+using personnel_department_DB.Storages;
 
 namespace personnel_department_course_work
 {
@@ -12,6 +14,10 @@ namespace personnel_department_course_work
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connectionString));
+
+            builder.Services.AddTransient<IPositionsStorage,PositionsStorage>();
+            builder.Services.AddTransient<IEmployeesStorage, EmployeesStorage>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

@@ -11,6 +11,8 @@ namespace personnel_department_DB
     public class DatabaseContext : DbContext
     {
         public DbSet<Position> Positions { get; set; }
+
+        public DbSet<Employee> Employess { get; set; }
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
             Database.Migrate();
