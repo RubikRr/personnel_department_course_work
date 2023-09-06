@@ -8,8 +8,8 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace personnel_department_DB.Models
 {
-    [Table("EmploymentContracts")]
-    public class EmploymentContract
+    [Table("Contracts")]
+    public class Contract
     {
         public Guid Id { get; set; }
         public DateTime DateOfPreparation { get; set; }
@@ -22,7 +22,5 @@ namespace personnel_department_DB.Models
 
         public Guid CompanyId { get; set; }
         public Company Company { get; set; }
-        
-
     }
 }

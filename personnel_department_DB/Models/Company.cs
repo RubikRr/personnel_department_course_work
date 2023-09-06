@@ -13,5 +13,6 @@ namespace personnel_department_DB.Models
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        List<Contract> Contracts { get; set; }
     }
 }

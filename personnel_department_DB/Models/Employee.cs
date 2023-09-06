@@ -25,6 +25,7 @@ namespace personnel_department_DB.Models
 
         public WorkingTime WorkingTimeTable { get; set; }
 
+        public Contract Contract { get; set; }
 
     }
 }

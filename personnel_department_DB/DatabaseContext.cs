@@ -41,6 +41,16 @@ namespace personnel_department_DB
                 PositionId = posDirector.Id,
             };
 
+            var contractDirector = new Contract
+            {
+                Id = Guid.NewGuid(),
+                DateOfPreparation = new DateTime(2023, 9, 1),
+                AcceptanceDate = new DateTime(2023, 9, 5),
+                Salary = 10000,
+                Allowance = 2000,
+                EmployeeId = director.Id,
+                CompanyId = company1.Id,
+            };
             var directorWorkingTimeTable = new WorkingTime
             {
                 Id = Guid.NewGuid(),
@@ -55,6 +65,7 @@ namespace personnel_department_DB
             modelBuilder.Entity<Position>().HasData(posDirector, posAccountant);
             modelBuilder.Entity<Company>().HasData(company1);
             modelBuilder.Entity<Employee>().HasData(director);
+            modelBuilder.Entity<Contract>().HasData(contractDirector);
             modelBuilder.Entity<WorkingTime>().HasData(directorWorkingTimeTable);
         }
     }
