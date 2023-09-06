@@ -21,5 +21,31 @@ namespace personnel_department_DB.Storages
         {
             return dbContext.Positions.Include(position => position.Employees).ToList();
         }
+
+        public void Add(Position position)
+        {
+            dbContext.Positions.Add(position);
+            dbContext.SaveChanges();
+        }
+
+        public void Delete(Guid id)
+        {
+            var position=GetById(id);
+            dbContext.Positions.Remove(position);
+            dbContext.SaveChanges();
+        }
+
+        public void Edit(Position position)
+        {
+            var existingPosition = GetById(position.Id);
+            existingPosition.Name = position.Name;
+            dbContext.SaveChanges();
+        }
+
+        public Position GetById(Guid id)
+        {
+            return dbContext.Positions.FirstOrDefault(position => position.Id == id);
+        }
+
     }
 }

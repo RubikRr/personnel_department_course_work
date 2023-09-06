@@ -1,0 +1,12 @@
+﻿@model PositionViewModel
+<form asp-controller="position" asp-action="Add">
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Должность</span>
+        </div>
+        <input type="text" asp-for="Name" class="form-control" placeholder="Директор" aria-describedby="basic-addon1">
+    </div>
+
+    <button class="btn btn-success" type="submit">Добавить</button>
+</form>
