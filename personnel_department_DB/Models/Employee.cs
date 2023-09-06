@@ -27,5 +27,6 @@ namespace personnel_department_DB.Models
 
         public Contract Contract { get; set; }
 
+        public Dismissal? Dismissal { get; set; }
     }
 }
