@@ -1,0 +1,122 @@
+﻿@using personnel_department_DB.Models;
+@model Employee
+<div class="row g-3">
+    <div class="col-md-12">
+        <h2> Информация о работнике</h2>
+    </div>
+</div>
+<div class="row g-3">
+    <label class="col-sm-2 col-form-label">ФИО:</label>
+    <div class="col-sm-10">
+    <label class="col-3 col-form-label"> @Model.FIO</label>
+    </div>
+</div>
+<div class="row g-3">
+
+    <label class="col-sm-2 col-form-label">Место проживания: </label>
+    <div class="col-sm-10">
+        <label class="col-sm-2 col-form-label"> @Model.PlaceOfResidence</label>
+    </div>
+</div>
+<div class="row g-3">
+
+    <label class="col-sm-2 col-form-label">Телефон: </label>
+    <div class="col-sm-10">
+        <label class="col-sm-2 col-form-label">@Model.PhoneNumber</label>
+    </div>
+</div>
+<div class="row g-3">
+
+    <label class="col-sm-2 col-form-label">Дата рождения: </label>
+    <div class="col-sm-10">
+        <label class="col-sm-2 col-form-label"> @(Model.DateOfBirth.ToShortDateString())</label>
+    </div>
+</div>
+<div class="row g-3">
+
+    <label class="col-sm-2 col-form-label">ИНН: </label>
+    <div class="col-sm-10">
+        <label class="col-sm-2 col-form-label">@Model.INH</label>
+    </div>
+</div>
+<div class="row g-3">
+
+    <label class="col-sm-2 col-form-label">Номер паспорта: </label>
+    <div class="col-sm-10">
+        <label class="col-sm-2 col-form-label"> @Model.PassportId</label>
+    </div>
+</div>
+<div class="row g-3">
+
+    <label class="col-sm-2 col-form-label">Состав семьи: </label>
+    <div class="col-sm-10">
+        <label class="col-sm-2 col-form-label"> @Model.FamilyComposition</label>
+    </div>
+</div>
+<div class="row g-3">
+
+    <label class="col-sm-2 col-form-label">Стаж (лет): </label>
+    <div class="col-sm-10">
+        <label class="col-sm-2 col-form-label"> @Model.WorkExperience</label>
+    </div>
+</div>
+<div class="row g-3">
+
+    <label class="col-sm-2 col-form-label">Должность: </label>
+    <div class="col-sm-10">
+        <label class="col-sm-2 col-form-label"> @Model.Position.Name</label>
+    </div>
+</div>
+<div class="row g-3">
+
+    <label class="col-sm-2 col-form-label">Компания: </label>
+    <div class="col-sm-10">
+        <label class="col-sm-2 col-form-label"> @Model.Contract.Company.Name</label>
+    </div>
+</div>
+
+
+<div class="row g-3">
+    <div class="col-md-12">
+        <h2> Табель рабочего времени</h2>
+    </div>
+</div>
+<div class="row g-3">
+    <label class="col-sm-2 col-form-label">Кол-во рабочих дней:</label>
+    <div class="col-sm-10">
+        <label class="col-3 col-form-label"> @Model.WorkingTimeTable.DaysWorked</label>
+    </div>
+</div>
+<div class="row g-3">
+    <label class="col-sm-2 col-form-label">Реальное кол-во рабочих дней:</label>
+    <div class="col-sm-10">
+        <label class="col-3 col-form-label"> @Model.WorkingTimeTable.ActualDaysWorked</label>
+    </div>
+</div>
+<div class="row g-3">
+    <label class="col-sm-2 col-form-label">Выходных:</label>
+    <div class="col-sm-10">
+        <label class="col-3 col-form-label"> @Model.WorkingTimeTable.DaysOff</label>
+    </div>
+</div>
+<div class="row g-3">
+    <label class="col-sm-2 col-form-label">Отпускных:</label>
+    <div class="col-sm-10">
+        <label class="col-3 col-form-label"> @Model.WorkingTimeTable.Vacation</label>
+    </div>
+</div>
+<div class="row g-3">
+    <label class="col-sm-2 col-form-label">Командировки: </label>
+    <div class="col-sm-10">
+        <label class="col-3 col-form-label"> @Model.WorkingTimeTable.BusinessTrip</label>
+    </div>
+</div>
+<div class="row g-3">
+    <label class="col-sm-2 col-form-label">Больничный: </label>
+    <div class="col-sm-10">
+        <label class="col-3 col-form-label"> @Model.WorkingTimeTable.SickLeave</label>
+    </div>
+</div>
+
+
+

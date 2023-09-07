@@ -17,5 +17,11 @@ namespace personnel_department_course_work.Controllers
             var employees=employeesStorage.GetAll();
             return View(employees);
         }
+
+        public IActionResult Details(Guid id)
+        {
+            var employe = employeesStorage.GetById(id);
+            return View(employe);
+        }
     }
 }

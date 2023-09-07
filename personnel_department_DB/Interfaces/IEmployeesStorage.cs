@@ -10,5 +10,7 @@ namespace personnel_department_DB.Interfaces
     public interface IEmployeesStorage
     {
         public List<Employee> GetAll();
+
+        public Employee GetById(Guid id);
     }
 }

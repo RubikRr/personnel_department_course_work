@@ -22,5 +22,10 @@ namespace personnel_department_DB.Storages
         {
             return dbContext.Employess.Include(employee=>employee.Position).Include(employee=>employee.WorkingTimeTable).ToList();
         }
+
+        public Employee GetById(Guid id) 
+        {
+           return dbContext.Employess.Include(employee=>employee.Position).Include(employee=>employee.WorkingTimeTable).Include(employee=>employee.Contract).ThenInclude(contract=>contract.Company).FirstOrDefault(employee => employee.Id == id);
+        }
     }
 }
