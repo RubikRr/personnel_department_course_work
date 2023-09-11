@@ -23,5 +23,11 @@ namespace personnel_department_course_work.Controllers
             var employe = employeesStorage.GetById(id);
             return View(employe);
         }
+
+        public IActionResult FindByPhone(string phone)
+        {
+            var employees= employeesStorage.GetByPhone(phone);
+            return View(employees);
+        }
     }
 }

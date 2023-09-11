@@ -40,7 +40,19 @@ namespace personnel_department_DB
                 WorkExperience = 12,
                 PositionId = posDirector.Id,
             };
-
+            var accountant = new Employee
+            {
+                Id = Guid.NewGuid(),
+                FIO = "Владимир Сергеевич Алханчуртов",
+                DateOfBirth = new DateTime(2001, 10, 10),
+                FamilyComposition = 3,
+                INH = 1292374892,
+                PassportId = 22233,
+                PhoneNumber = "+9 123 653 12 22",
+                PlaceOfResidence = "Пр.Коста 1",
+                WorkExperience = 7,
+                PositionId = posAccountant.Id,
+            };
             var contractDirector = new Contract
             {
                 Id = Guid.NewGuid(),
@@ -49,6 +61,16 @@ namespace personnel_department_DB
                 Salary = 10000,
                 Allowance = 2000,
                 EmployeeId = director.Id,
+                CompanyId = company1.Id,
+            };
+            var contractAccountant = new Contract
+            {
+                Id = Guid.NewGuid(),
+                DateOfPreparation = new DateTime(2022, 8, 3),
+                AcceptanceDate = new DateTime(2022, 8, 4),
+                Salary = 60000,
+                Allowance = 1000,
+                EmployeeId = accountant.Id,
                 CompanyId = company1.Id,
             };
             var directorWorkingTimeTable = new WorkingTime
@@ -62,11 +84,22 @@ namespace personnel_department_DB
                 Vacation = 0,
                 EmployeeId = director.Id
             };
+            var acountantWorkingTimeTable = new WorkingTime
+            {
+                Id = Guid.NewGuid(),
+                DaysWorked = 31,
+                ActualDaysWorked = 17,
+                DaysOff = 7,
+                BusinessTrip = 4,
+                SickLeave = 3,
+                Vacation = 0,
+                EmployeeId = accountant.Id
+            };
             modelBuilder.Entity<Position>().HasData(posDirector, posAccountant);
             modelBuilder.Entity<Company>().HasData(company1);
-            modelBuilder.Entity<Employee>().HasData(director);
-            modelBuilder.Entity<Contract>().HasData(contractDirector);
-            modelBuilder.Entity<WorkingTime>().HasData(directorWorkingTimeTable);
+            modelBuilder.Entity<Employee>().HasData(director,accountant);
+            modelBuilder.Entity<Contract>().HasData(contractDirector,contractAccountant);
+            modelBuilder.Entity<WorkingTime>().HasData(directorWorkingTimeTable,acountantWorkingTimeTable);
         }
     }
 }

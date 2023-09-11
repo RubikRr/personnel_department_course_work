@@ -1,8 +1,9 @@
 ﻿@using personnel_department_DB.Models;
 @model List<Employee>
-@{
-    int i = 1;
-}
+@if (Model!=null || Model.Count==0)
+{
+   
+int i = 1;
 <table class="table">
     <thead>
         <tr>
@@ -18,7 +19,7 @@
     <tbody>
         @foreach (var employee in @Model)
         {
-
+          
             <tr>
                 <th scope="row">@i</th>
                 <td class="w-35">@employee.FIO</td>
@@ -31,18 +32,9 @@
         }
     </tbody>
 </table>
-<a class="btn btn-success" asp-controller="employee" asp-action="Add">Добавить</a>
-<form asp-controller="employee" asp-action="FindByPhone">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-emoji-dizzy"></i></span>
-                <input type="text" class="form-control" placeholder="Поиск по телефону" name="phone" aria-describedby="basic-addon1">
-            </div>
-        </div>
-        <div class="col-md-6">
-            <button type="submit" class="btn btn-secondary">Найти</button>
-        </div>
-    </div>
-</form>
-
+    <a class="btn btn-success" asp-controller="employee" asp-route-phone="+8" asp-action="FindByPhone">Найти</a>
+}
+else
+{
+    <h1>Работников с таким номером нет</h1>
+}
