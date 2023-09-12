@@ -32,5 +32,10 @@ namespace personnel_department_DB.Storages
         {
             return dbContext.Employess.Include(employee => employee.Position).Include(employee => employee.WorkingTimeTable).Include(employee => employee.Contract).ThenInclude(contract => contract.Company).Where(employee => employee.PhoneNumber.StartsWith(phone)).ToList();
         }
+
+        public List<Employee> GetByTable(string tableId)
+        {
+            return dbContext.Employess.Include(employee => employee.Position).Include(employee => employee.WorkingTimeTable).Include(employee => employee.Contract).ThenInclude(contract => contract.Company).Where(employee => employee.WorkingTimeTable.Id.ToString().StartsWith(tableId)).ToList();
+        }
     }
 }

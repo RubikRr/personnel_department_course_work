@@ -82,6 +82,12 @@
     </div>
 </div>
 <div class="row g-3">
+    <label class="col-sm-2 col-form-label">Id табеля:</label>
+    <div class="col-sm-10">
+        <label class="col-4 col-form-label"> @Model.WorkingTimeTable.Id</label>
+    </div>
+</div>
+<div class="row g-3">
     <label class="col-sm-2 col-form-label">Кол-во рабочих дней:</label>
     <div class="col-sm-10">
         <label class="col-3 col-form-label"> @Model.WorkingTimeTable.DaysWorked</label>
@@ -115,6 +121,39 @@
     <label class="col-sm-2 col-form-label">Больничный: </label>
     <div class="col-sm-10">
         <label class="col-3 col-form-label"> @Model.WorkingTimeTable.SickLeave</label>
+    </div>
+</div>
+
+<div class="row g-3">
+    <div class="col-md-12">
+        <h2>Трудовой договор</h2>
+    </div>
+</div>
+<div class="row g-3">
+    <label class="col-sm-2 col-form-label">Дата составления: </label>
+    <div class="col-sm-10">
+        <label class="col-3 col-form-label"> @Model.Contract.DateOfPreparation.ToShortDateString()</label>
+    </div>
+</div>
+
+<div class="row g-3">
+    <label class="col-sm-2 col-form-label">Дата принятия: </label>
+    <div class="col-sm-10">
+        <label class="col-3 col-form-label"> @Model.Contract.AcceptanceDate.ToShortDateString()</label>
+    </div>
+</div>
+
+<div class="row g-3">
+    <label class="col-sm-2 col-form-label">Оклад: </label>
+    <div class="col-sm-10">
+        <label class="col-3 col-form-label"> @Model.Contract.Salary ₽</label>
+    </div>
+</div>
+
+<div class="row g-3">
+    <label class="col-sm-2 col-form-label">Надбавки: </label>
+    <div class="col-sm-10">
+        <label class="col-3 col-form-label"> @Model.Contract.Allowance ₽</label>
     </div>
 </div>
 

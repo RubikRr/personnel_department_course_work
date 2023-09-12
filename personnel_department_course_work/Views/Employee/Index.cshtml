@@ -3,6 +3,42 @@
 @{
     int i = 1;
 }
+
+<form class="mb-2" asp-controller="employee" asp-action="FindByPhone">
+    <div class="form-group row">
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-emoji-dizzy"></i></span>
+                <input type="text" class="form-control" placeholder="Поиск по телефону" name="phone" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-secondary">Найти</button>
+        </div>
+    </div>
+</form>
+<form class="mb-2" asp-controller="employee" asp-action="FindByTable">
+    <div class="form-group row">
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-emoji-smile"></i></span>
+                <input type="text" class="form-control" placeholder="Поиск по табелю" name="tableId" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-secondary">Найти</button>
+        </div>
+    </div>
+
+</form>
+
+
+
+
+
+
+
+
 <table class="table">
     <thead>
         <tr>
@@ -32,17 +68,3 @@
     </tbody>
 </table>
 <a class="btn btn-success" asp-controller="employee" asp-action="Add">Добавить</a>
-<form asp-controller="employee" asp-action="FindByPhone">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-emoji-dizzy"></i></span>
-                <input type="text" class="form-control" placeholder="Поиск по телефону" name="phone" aria-describedby="basic-addon1">
-            </div>
-        </div>
-        <div class="col-md-6">
-            <button type="submit" class="btn btn-secondary">Найти</button>
-        </div>
-    </div>
-</form>
-

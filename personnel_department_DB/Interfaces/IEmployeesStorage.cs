@@ -14,5 +14,7 @@ namespace personnel_department_DB.Interfaces
         public Employee GetById(Guid id);
 
         public List<Employee> GetByPhone(string phone);
+
+        public List<Employee> GetByTable(string tableId);
     }
 }
