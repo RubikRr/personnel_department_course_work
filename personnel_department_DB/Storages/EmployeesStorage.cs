@@ -17,7 +17,11 @@ namespace personnel_department_DB.Storages
         {
             this.dbContext = dbContext;
         }
-
+        public void Add(Employee employee)
+        {
+            dbContext.Add(employee);
+            dbContext.SaveChanges();
+        }
         public List<Employee> GetAll()
         {
             return dbContext.Employess.Include(employee=>employee.Position).Include(employee=>employee.WorkingTimeTable).ToList();

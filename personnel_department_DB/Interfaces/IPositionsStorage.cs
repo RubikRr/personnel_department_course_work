@@ -15,5 +15,6 @@ namespace personnel_department_DB.Interfaces
         public void Edit(Position position);
         public void Delete(Guid id);
         public Position GetById(Guid id);
+        public Position GetByName(string name);
     }
 }

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace personnel_department_DB.Models
 {
@@ -23,9 +20,9 @@ namespace personnel_department_DB.Models
         public Guid PositionId { get; set; }
         public Position Position { get; set; }
 
-        public WorkingTime WorkingTimeTable { get; set; }
+        public WorkingTime? WorkingTimeTable { get; set; }
 
-        public Contract Contract { get; set; }
+        public Contract? Contract { get; set; }
 
         public Dismissal? Dismissal { get; set; }
     }

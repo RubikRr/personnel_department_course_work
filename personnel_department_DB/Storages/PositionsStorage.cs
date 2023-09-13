@@ -46,6 +46,10 @@ namespace personnel_department_DB.Storages
         {
             return dbContext.Positions.FirstOrDefault(position => position.Id == id);
         }
+        public Position GetByName(string name)
+        {
+            return dbContext.Positions.FirstOrDefault(position => position.Name==name);
+        }
 
     }
 }

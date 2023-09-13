@@ -1,0 +1,61 @@
+﻿@using personnel_department_DB.Models;
+@model Employee
+<form asp-controller="employee" asp-action="Add">
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">ФИО</label>
+        <div class="col-sm-6">
+            <input asp-for="FIO" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Стаж</label>
+        <div class="col-sm-6">
+            <input asp-for="WorkExperience" type="number" class="form-control">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">ИНН</label>
+        <div class="col-sm-6">
+            <input asp-for="INH" type="number" class="form-control">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Номер паспорта</label>
+        <div class="col-sm-6">
+            <input asp-for="PassportId" type="number" class="form-control">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Состав семьи</label>
+        <div class="col-sm-6">
+            <input asp-for=FamilyComposition type="number" class="form-control">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Номер телефона</label>
+        <div class="col-sm-6">
+            <input asp-for=PhoneNumber type="text" class="form-control">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Место проживания</label>
+        <div class="col-sm-6">
+            <input asp-for=PlaceOfResidence type="text" class="form-control">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Дата рождения</label>
+        <div class="col-sm-6">
+            <input asp-for=DateOfBirth type="date" class="form-control">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Должность</label>
+        <div class="col-sm-6">
+            <select asp-for="Position.Name" class="form-control" asp-items="ViewBag.Positions"></select>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Добавить</button>
+
+</form>

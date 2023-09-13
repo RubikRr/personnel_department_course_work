@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using personnel_department_DB.Interfaces;
+using personnel_department_DB.Models;
 
 namespace personnel_department_course_work.Controllers
 {
@@ -7,14 +9,17 @@ namespace personnel_department_course_work.Controllers
     {
         private IEmployeesStorage employeesStorage;
 
-        public EmployeeController(IEmployeesStorage employeesStorage) 
+        private IPositionsStorage positionsStorage;
+
+        public EmployeeController(IEmployeesStorage employeesStorage, IPositionsStorage positionsStorage)
         {
             this.employeesStorage = employeesStorage;
+            this.positionsStorage = positionsStorage;
         }
 
         public IActionResult Index()
         {
-            var employees=employeesStorage.GetAll();
+            var employees = employeesStorage.GetAll();
             return View(employees);
         }
 
@@ -26,7 +31,7 @@ namespace personnel_department_course_work.Controllers
 
         public IActionResult FindByPhone(string phone)
         {
-            var employees= employeesStorage.GetByPhone(phone);
+            var employees = employeesStorage.GetByPhone(phone);
             return View(employees);
         }
 
@@ -34,6 +39,20 @@ namespace personnel_department_course_work.Controllers
         {
             var employees = employeesStorage.GetByTable(tableId);
             return View(employees);
+        }
+
+        public IActionResult Add()
+        {
+            var sl=new SelectList(positionsStorage.GetAll().Select(position => position.Name));
+            ViewBag.Positions=sl;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Add(Employee employee)
+        {
+            employee.Position=positionsStorage.GetByName(employee.Position.Name);
+            employeesStorage.Add(employee);
+            return  RedirectToAction(nameof(Index));
         }
     }
 }

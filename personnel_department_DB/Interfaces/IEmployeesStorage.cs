@@ -12,6 +12,7 @@ namespace personnel_department_DB.Interfaces
         public List<Employee> GetAll();
 
         public Employee GetById(Guid id);
+        public void Add(Employee employee);
 
         public List<Employee> GetByPhone(string phone);
 
