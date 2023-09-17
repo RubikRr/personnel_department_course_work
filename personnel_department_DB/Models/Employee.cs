@@ -29,5 +29,6 @@ namespace personnel_department_DB.Models
         public List<Transfer>Ttransfers { get; set; }
 
         public List<BusinessTtrip> BusinessTtrips{ get; set; }
+        public List<Vacation> Vacations{ get; set; }
     }
 }
