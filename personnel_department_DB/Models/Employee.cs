@@ -27,5 +27,7 @@ namespace personnel_department_DB.Models
         public Dismissal? Dismissal { get; set; }
 
         public List<Transfer>Ttransfers { get; set; }
+
+        public List<BusinessTtrip> BusinessTtrips{ get; set; }
     }
 }

@@ -7,14 +7,17 @@ using System.Threading.Tasks;
 
 namespace personnel_department_DB.Models
 {
-    [Table("Transfers")]
-    public class Transfer
+    [Table("BusinessTrips")]
+    public class BusinessTtrip
     {
         public Guid Id { get; set; }
-        public string Type { get; set; }
-        public string PreviousWork { get; set; }
-        public string NewWork { get; set; }
-        public string Reason { get; set; }
+
+        public int Term { get; set; }
+        public decimal Funds { get; set; }
+
+
+        public string Destination { get; set; }
+        public string Target { get; set; }
         public Guid EmployeeId { get; set; }
         public Employee Employee { get; set; }
     }
