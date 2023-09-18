@@ -1,5 +1,7 @@
 ﻿@using personnel_department_DB.Models;
 @model Employee
+
+
 <div class="row g-3">
     <div class="col-md-12">
         <h2> Информация о работнике</h2>
@@ -8,7 +10,7 @@
 <div class="row g-3">
     <label class="col-sm-2 col-form-label">ФИО:</label>
     <div class="col-sm-10">
-    <label class="col-3 col-form-label"> @Model.FIO</label>
+        <label class="col-3 col-form-label"> @Model.FIO</label>
     </div>
 </div>
 <div class="row g-3">
@@ -71,11 +73,11 @@
 
     <label class="col-sm-2 col-form-label">Компания: </label>
     <div class="col-sm-10">
-        <label class="col-sm-2 col-form-label"> @(Model.Contract == null ? "-":Model.Contract.Company.Name)</label>
+        <label class="col-sm-2 col-form-label"> @(Model.Contract == null ? "-" : Model.Contract.Company.Name)</label>
     </div>
 </div>
 
-@if (Model.WorkingTimeTable!=null)
+@if (Model.WorkingTimeTable != null)
 {
     <div class="row g-3">
         <div class="col-md-12">
@@ -132,7 +134,7 @@ else
             <h2> Табель рабочего времени отсутствует</h2>
         </div>
         <div class="col-md-4">
-    <a class="btn btn-success" asp-controller="employee" asp-action="">Добавить табель рабочего времени</a>
+            <a class="btn btn-success" asp-controller="employee" asp-action="">Добавить табель рабочего времени</a>
 
         </div>
     </div>
@@ -184,3 +186,55 @@ else
         </div>
     </div>
 }
+@{
+    int i = 0;
+}
+@if (Model.Ttransfers != null)
+{
+
+    <div class="row g-3">
+        <div class="col-md-12">
+            <h2>Переводы</h2>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">№</th>
+                <th scope="col">Тип</th>
+                <th scope="col">Старое место работы</th>
+                <th scope="col">Новое место работы</th>
+                <th scope="col">Причина перевода</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            @foreach (var transfer in Model.Ttransfers)
+            {
+                <tr>
+                    <th scope="row">@i</th>
+                    <td class="w-35">@transfer.Type</td>
+                    <td class="w-15">@transfer.PreviousWork</td>
+                    <td class="w-15">@transfer.NewWork</td>
+                    <td class="w-15">@transfer.Reason</td>
+                </tr>
+                 i += 1; 
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="row g-3">
+        <div class="col-md-12">
+            <h2> Переводы отсутствует</h2>
+        </div>
+    </div>
+}
+<div class="raw">
+    <div class="col-3">
+        <a class="btn btn-success" asp-controller="employee" asp-action="AddTransfer" asp-route-employeeId="@Model.Id">Добавить перевод</a>
+    </div>
+</div>

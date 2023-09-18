@@ -13,6 +13,8 @@ namespace personnel_department_DB
         public DbSet<Position> Positions { get; set; }
 
         public DbSet<Employee> Employess { get; set; }
+
+        public DbSet<Transfer> Transfers{ get; set; }
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
             Database.Migrate();

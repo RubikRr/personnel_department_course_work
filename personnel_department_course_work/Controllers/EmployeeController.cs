@@ -54,5 +54,17 @@ namespace personnel_department_course_work.Controllers
             employeesStorage.Add(employee);
             return  RedirectToAction(nameof(Index));
         }
+
+        public IActionResult AddTransfer(Guid employeeId)
+        {
+            ViewBag.EmployeeId =employeeId;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddTransfer(Transfer transfer)
+        {
+            employeesStorage.AddTransfer(transfer);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

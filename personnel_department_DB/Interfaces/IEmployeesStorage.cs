@@ -1,4 +1,5 @@
-﻿using personnel_department_DB.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using personnel_department_DB.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,7 @@ namespace personnel_department_DB.Interfaces
         public List<Employee> GetByPhone(string phone);
 
         public List<Employee> GetByTable(string tableId);
+
+        public void AddTransfer(Transfer transfer);
     }
 }

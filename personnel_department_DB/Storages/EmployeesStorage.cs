@@ -29,17 +29,23 @@ namespace personnel_department_DB.Storages
 
         public Employee GetById(Guid id) 
         {
-           return dbContext.Employess.Include(employee=>employee.Position).Include(employee=>employee.WorkingTimeTable).Include(employee=>employee.Contract).ThenInclude(contract=>contract.Company).FirstOrDefault(employee => employee.Id == id);
+           return dbContext.Employess.Include(employee=>employee.Position).Include(employee=>employee.WorkingTimeTable).Include(employee=>employee.Ttransfers).Include(employee=>employee.Contract).ThenInclude(contract=>contract.Company).FirstOrDefault(employee => employee.Id == id);
         }
 
         public List<Employee> GetByPhone(string phone)
         {
-            return dbContext.Employess.Include(employee => employee.Position).Include(employee => employee.WorkingTimeTable).Include(employee => employee.Contract).ThenInclude(contract => contract.Company).Where(employee => employee.PhoneNumber.StartsWith(phone)).ToList();
+            return dbContext.Employess.Include(employee => employee.Position).Include(employee => employee.WorkingTimeTable).Include(employee => employee.Ttransfers).Include(employee => employee.Contract).ThenInclude(contract => contract.Company).Where(employee => employee.PhoneNumber.StartsWith(phone)).ToList();
         }
 
         public List<Employee> GetByTable(string tableId)
         {
-            return dbContext.Employess.Include(employee => employee.Position).Include(employee => employee.WorkingTimeTable).Include(employee => employee.Contract).ThenInclude(contract => contract.Company).Where(employee => employee.WorkingTimeTable.Id.ToString().StartsWith(tableId)).ToList();
+            return dbContext.Employess.Include(employee => employee.Position).Include(employee => employee.WorkingTimeTable).Include(employee => employee.Ttransfers).Include(employee => employee.Contract).ThenInclude(contract => contract.Company).Where(employee => employee.WorkingTimeTable.Id.ToString().StartsWith(tableId)).ToList();
+        }
+
+        public void AddTransfer(Transfer transfer)
+        {
+            dbContext.Transfers.Add(transfer);
+            dbContext.SaveChanges();
         }
     }
 }
