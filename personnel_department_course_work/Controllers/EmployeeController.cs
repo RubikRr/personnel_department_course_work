@@ -22,6 +22,8 @@ namespace personnel_department_course_work.Controllers
 
         public IActionResult Index()
         {
+            var sl = new SelectList(positionsStorage.GetAll().Select(position => position.Name));
+            ViewBag.Positions = sl;
             var employees = employeesStorage.GetAll();
             return View(employees);
         }
@@ -41,6 +43,13 @@ namespace personnel_department_course_work.Controllers
         public IActionResult FindByTable(string tableId)
         {
             var employees = employeesStorage.GetByTable(tableId);
+            return View(employees);
+        }
+
+        public IActionResult FindByPosition(string positionName)
+        {
+           
+            var employees = employeesStorage.GetByPosition(positionName);
             return View(employees);
         }
 

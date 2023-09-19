@@ -23,7 +23,7 @@ namespace personnel_department_DB.Interfaces
 
         public void AddWorkingTime(WorkingTime workingTime);
         public void AddContract(Contract contract);
-
+        public List<Employee> GetByPosition(string positionName);
         public Company GetCompany();
     }
 }

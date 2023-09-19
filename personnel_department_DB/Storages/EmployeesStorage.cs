@@ -42,6 +42,11 @@ namespace personnel_department_DB.Storages
             return dbContext.Employess.Include(employee => employee.Position).Include(employee => employee.WorkingTimeTable).Include(employee => employee.Ttransfers).Include(employee => employee.Contract).ThenInclude(contract => contract.Company).Where(employee => employee.WorkingTimeTable.Id.ToString().StartsWith(tableId)).ToList();
         }
 
+        public List<Employee> GetByPosition(string positionName)
+        {
+            return dbContext.Employess.Include(employee => employee.Position).Include(employee => employee.WorkingTimeTable).Include(employee => employee.Ttransfers).Include(employee => employee.Contract).ThenInclude(contract => contract.Company).Where(employee => employee.Position.Name==positionName).ToList();
+        }
+
         public void AddTransfer(Transfer transfer)
         {
             dbContext.Transfers.Add(transfer);
