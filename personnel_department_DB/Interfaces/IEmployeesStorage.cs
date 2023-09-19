@@ -20,5 +20,10 @@ namespace personnel_department_DB.Interfaces
         public List<Employee> GetByTable(string tableId);
 
         public void AddTransfer(Transfer transfer);
+
+        public void AddWorkingTime(WorkingTime workingTime);
+        public void AddContract(Contract contract);
+
+        public Company GetCompany();
     }
 }

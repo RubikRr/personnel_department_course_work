@@ -47,5 +47,17 @@ namespace personnel_department_DB.Storages
             dbContext.Transfers.Add(transfer);
             dbContext.SaveChanges();
         }
+        public void AddWorkingTime(WorkingTime workingTime)
+        {
+            //dbContext.WorkingTimes.Add(workingTime);
+            //dbContext.SaveChanges();
+        }
+        public void AddContract(Contract contract)
+        {
+            dbContext.Contracts.Add(contract);
+            dbContext.SaveChanges();
+        }
+
+        public Company GetCompany() { return dbContext.Companies.FirstOrDefault(); }
     }
 }

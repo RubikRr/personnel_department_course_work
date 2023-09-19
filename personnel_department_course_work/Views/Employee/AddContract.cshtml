@@ -1,0 +1,37 @@
+﻿
+@using personnel_department_DB.Models;
+@model Contract;
+
+<form asp-controller="employee" asp-action="AddContract">
+    <div class="mb-3 row">
+        <h1>Добавить трудовой договор</h1>
+
+        <label class="col-sm-2 col-form-label">Дата составления</label>
+        <div class="col-sm-6">
+            <input asp-for="DateOfPreparation" type="date" class="form-control">
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Дата принятия</label>
+        <div class="col-sm-6">
+            <input asp-for=AcceptanceDate type="date" class="form-control">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Новое место работы</label>
+        <div class="col-sm-6">
+            <input asp-for=Salary type="number" class="form-control">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Надбавки</label>
+        <div class="col-sm-6">
+            <input asp-for=Allowance type="number" class="form-control">
+        </div>
+    </div>
+
+    <input type="text" asp-for="EmployeeId" value=@ViewBag.EmployeeId hidden>
+    <button type="submit" class="btn btn-success">Добавить</button>
+
+</form>

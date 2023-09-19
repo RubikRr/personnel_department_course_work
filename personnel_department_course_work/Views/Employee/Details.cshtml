@@ -134,12 +134,10 @@ else
             <h2> Табель рабочего времени отсутствует</h2>
         </div>
         <div class="col-md-4">
-            <a class="btn btn-success" asp-controller="employee" asp-action="">Добавить табель рабочего времени</a>
-
+            <a class="btn btn-success" asp-controller="employee" asp-action="AddWorkingTime" asp-route-employeeId="@Model.Id">Добавить табель рабочего времени</a>
         </div>
     </div>
 }
-
 @if (Model.Contract != null)
 {
     <div class="row g-3">
@@ -182,12 +180,12 @@ else
             <h2> Трудовой договор отсутствует</h2>
         </div>
         <div class="col-md-4">
-            <a class="btn btn-success" asp-controller="employee" asp-action="">Добавить трудовой договор</a>
+            <a class="btn btn-success" asp-controller="employee" asp-action="AddContract" asp-route-employeeId="@Model.Id">Добавить трудовой договор</a>
         </div>
     </div>
 }
 @{
-    int i = 0;
+    int i = 1;
 }
 @if (Model.Ttransfers != null)
 {

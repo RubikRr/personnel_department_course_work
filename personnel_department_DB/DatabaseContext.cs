@@ -15,6 +15,11 @@ namespace personnel_department_DB
         public DbSet<Employee> Employess { get; set; }
 
         public DbSet<Transfer> Transfers{ get; set; }
+
+     
+        public DbSet<Contract> Contracts{ get; set; }
+
+        public DbSet<Company> Companies { get; set; }
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
             Database.Migrate();

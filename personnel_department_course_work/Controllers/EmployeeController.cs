@@ -54,7 +54,29 @@ namespace personnel_department_course_work.Controllers
             employeesStorage.Add(employee);
             return  RedirectToAction(nameof(Index));
         }
-
+        public IActionResult AddWorkingTime(Guid employeeId)
+        {
+            ViewBag.EmployeeId = employeeId;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddWorkingTime(WorkingTime workingTime)
+        {
+            
+            return RedirectToAction(nameof(Index));
+        }
+        public IActionResult AddContract(Guid employeeId)
+        {
+            ViewBag.EmployeeId = employeeId;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddContract(Contract contract)
+        {
+            contract.CompanyId = employeesStorage.GetCompany().Id;
+            employeesStorage.AddContract(contract);
+            return RedirectToAction(nameof(Index));
+        }
         public IActionResult AddTransfer(Guid employeeId)
         {
             ViewBag.EmployeeId =employeeId;
