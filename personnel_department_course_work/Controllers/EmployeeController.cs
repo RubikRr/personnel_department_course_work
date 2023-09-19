@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using personnel_department_DB.Interfaces;
 using personnel_department_DB.Models;
+using personnel_department_DB.Storages;
+using System.Diagnostics.Contracts;
+using Contract = personnel_department_DB.Models.Contract;
 
 namespace personnel_department_course_work.Controllers
 {
@@ -62,7 +65,7 @@ namespace personnel_department_course_work.Controllers
         [HttpPost]
         public IActionResult AddWorkingTime(WorkingTime workingTime)
         {
-            
+           employeesStorage.AddWorkingTime(workingTime);
             return RedirectToAction(nameof(Index));
         }
         public IActionResult AddContract(Guid employeeId)

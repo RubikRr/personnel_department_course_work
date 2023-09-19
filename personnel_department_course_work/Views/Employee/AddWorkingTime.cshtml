@@ -1,1 +1,46 @@
-﻿<h1>Табель рабочего времени</h1>
+﻿
+@using personnel_department_DB.Models;
+@model WorkingTime;
+<form asp-controller="employee" asp-action="AddWorkingTime">
+    <div class="mb-3 row">
+        <h1>Табель рабочего времени</h1>
+        <label class="col-sm-2 col-form-label">Кол-во рабочих дней</label>
+        <div class="col-sm-6">
+            <input asp-for="DaysWorked" type="text" class="form-control">
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Реальное кол-во рабочих дней</label>
+        <div class="col-sm-6">
+            <input asp-for=ActualDaysWorked type="number" class="form-control">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Выходных</label>
+        <div class="col-sm-6">
+            <input asp-for=DaysOff type="number" class="form-control">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Отпускных</label>
+        <div class="col-sm-6">
+            <input asp-for=Vacation type="number" class="form-control">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Командировки</label>
+        <div class="col-sm-6">
+            <input asp-for=BusinessTrip type="number" class="form-control">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Больничный</label>
+        <div class="col-sm-6">
+            <input asp-for=SickLeave type="number" class="form-control">
+        </div>
+    </div>
+
+    <input type="text" asp-for="EmployeeId" value=@ViewBag.EmployeeId hidden>
+    <button type="submit" class="btn btn-success">Добавить</button>
+</form>

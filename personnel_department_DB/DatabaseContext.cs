@@ -16,7 +16,7 @@ namespace personnel_department_DB
 
         public DbSet<Transfer> Transfers{ get; set; }
 
-     
+        public DbSet<WorkingTime> WorkingTime { get; set; }
         public DbSet<Contract> Contracts{ get; set; }
 
         public DbSet<Company> Companies { get; set; }

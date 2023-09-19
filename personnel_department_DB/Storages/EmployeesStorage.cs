@@ -24,7 +24,7 @@ namespace personnel_department_DB.Storages
         }
         public List<Employee> GetAll()
         {
-            return dbContext.Employess.Include(employee=>employee.Position).Include(employee=>employee.WorkingTimeTable).ToList();
+            return dbContext.Employess.Include(employee=>employee.Position).ToList();
         }
 
         public Employee GetById(Guid id) 
@@ -49,8 +49,8 @@ namespace personnel_department_DB.Storages
         }
         public void AddWorkingTime(WorkingTime workingTime)
         {
-            //dbContext.WorkingTimes.Add(workingTime);
-            //dbContext.SaveChanges();
+            dbContext.WorkingTime.Add(workingTime);
+            dbContext.SaveChanges();
         }
         public void AddContract(Contract contract)
         {
